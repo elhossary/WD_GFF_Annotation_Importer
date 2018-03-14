@@ -1,0 +1,6 @@
+SELECT ?item ?itemLabel
+WHERE {
+  ?item wdt:P703 wd:#QID#.
+  ?item rdfs:label ?itemLabel.
+  FILTER(CONTAINS(?itemLabel, "#LABEL#"@en)).
+}

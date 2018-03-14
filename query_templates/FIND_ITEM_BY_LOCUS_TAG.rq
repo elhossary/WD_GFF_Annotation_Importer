@@ -1,0 +1,5 @@
+SELECT ?item WHERE {
+  ?item wdt:P31 wd:Q7187.
+  ?item wdt:P703 wd:#QID#.
+  ?item wdt:P2393 '#LOCUS_TAG#'.
+}
