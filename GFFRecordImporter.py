@@ -128,21 +128,21 @@ class GFFRecordImporter:
     def connect_fragmented_records(self, parent_child_return_QID):
         temp_locus = ""
         returned_QID_df = pd.DataFrame.from_records(parent_child_return_QID)
-        print(returned_QID_df)
-        returned_QID_df['IS_LOCUS_DUP'] = returned_QID_df['locus_tag'].duplicated(keep=False)
-        ItemImporter_obj = ItemImporter("", "", [""], [""])
-        for index, row in returned_QID_df.iterrows():
-            if not row['IS_LOCUS_DUP']:
-                returned_QID_df.drop(row[index])
-            else:
-                temp_locus = row['locus_tag']
-                for other_row in returned_QID_df.iterrows():
-                    if other_row['locus_tag'] == temp_locus:
-                        if row['PARENT_QID'] != other_row['PARENT_QID']:  # has part
-                            ItemImporter_obj.items_connector(row['PARENT_QID'], 'P361', other_row['PARENT_QID'])
-                        if row['CHILD_QID'] != other_row['CHILD_QID']:  # has part
-                            ItemImporter_obj.items_connector(row['CHILD_QID'], 'P361', other_row['CHILD_QID'])
-                temp_locus = ""
+        if returned_QID_df.shape[0] > 0:
+            returned_QID_df['IS_LOCUS_DUP'] = returned_QID_df['locus_tag'].duplicated(keep=False)
+            ItemImporter_obj = ItemImporter("", "", [""], [""])
+            for index, row in returned_QID_df.iterrows():
+                if not row['IS_LOCUS_DUP']:
+                    returned_QID_df.drop(row[index])
+                else:
+                    temp_locus = row['locus_tag']
+                    for other_row in returned_QID_df.iterrows():
+                        if other_row['locus_tag'] == temp_locus:
+                            if row['PARENT_QID'] != other_row['PARENT_QID']:  # has part
+                                ItemImporter_obj.items_connector(row['PARENT_QID'], 'P361', other_row['PARENT_QID'])
+                            if row['CHILD_QID'] != other_row['CHILD_QID']:  # has part
+                                ItemImporter_obj.items_connector(row['CHILD_QID'], 'P361', other_row['CHILD_QID'])
+                    temp_locus = ""
 
     def send_for_import(self):
 
