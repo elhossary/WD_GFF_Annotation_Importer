@@ -1,4 +1,4 @@
-from WDBioGffRecord import *
+from libs.WDBioGffRecord import *
 
 
 class WDncRnaRecord(WDBioGffRecord):

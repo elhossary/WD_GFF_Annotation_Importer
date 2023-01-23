@@ -1,7 +1,7 @@
-from WDProteinRecord import *
-from WDmRnaRecord import *
-from WDncRnaRecord import *
-from ItemImporter import *
+from libs.WDProteinRecord import *
+from libs.WDmRnaRecord import *
+from libs.WDncRnaRecord import *
+from libs.ItemImporter import *
 from wikidataintegrator.wdi_core import WDItemEngine
 import pandas as pd
 

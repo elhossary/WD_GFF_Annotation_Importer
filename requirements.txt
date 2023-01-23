@@ -1,0 +1,4 @@
+wikidataintegrator
+pandas
+pywikibot
+bcbio-gff
