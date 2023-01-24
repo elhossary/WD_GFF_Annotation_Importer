@@ -42,6 +42,7 @@ mylang = 'wikidata'
 # family , you can use '*'
 usernames['wikidata']['wikidata'] = u''
 
+
 # ############# LOGFILE SETTINGS ##############
 
 # Defines for which scripts a logfile should be enabled. Logfiles will be
