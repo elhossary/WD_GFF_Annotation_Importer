@@ -34,7 +34,7 @@ def main():
                 sys.exit()
     #  ask for login
     username = input("Enter your wikidata login username:  ")
-    password = input("Please Enter Username: ")
+    password = input("Enter your wikidata login password: ")
     login_instance = wdi_login.WDLogin(user=username, pwd=password)
 
     # retrieve the list of excluded records
