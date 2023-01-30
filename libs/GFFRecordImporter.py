@@ -4,6 +4,7 @@ from libs.WDncRnaRecord import *
 from libs.ItemImporter import *
 from wikidataintegrator.wdi_core import WDItemEngine
 import pandas as pd
+import tqdm
 
 
 class GFFRecordImporter:
@@ -179,7 +180,10 @@ class GFFRecordImporter:
                                                                WDRecord_obj.get_WD_desc(sub_types, pseudo_flag)[0],
                                                                WDRecord_obj.get_WD_aliases(),
                                                                WDRecord_obj.collect_WD_claims(sub_types, pseudo_flag)[0])
+
                         parent_QID = parent_itemimporter_obj.create_item()
+                        if parent_QID is None:
+                            continue
                         parent_itemimporter_obj.add_statements(parent_QID)
                         item_count += 1
 

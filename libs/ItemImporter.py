@@ -16,9 +16,13 @@ class ItemImporter:
                 "aliases": {"en": self.aliases_list}}
         site = pywikibot.Site("wikidata", "wikidata")
         new_item = pywikibot.ItemPage(site)
-        new_item.editEntity(data, summary=u'Edited item: set labels, descriptions, aliases')
-        print("New item created: " + new_item.getID())
-        return new_item.getID()
+        try:
+            new_item.editEntity(data, summary=u'Edited item: set labels, descriptions, aliases')
+            print("New item created: " + new_item.getID())
+            return new_item.getID()
+        except:
+            print("Create failed for item: " + self.label + ", please check " + new_item.getID())
+            return None
 
     def get_target_type(self, property_id):
         target_types_df = pd.read_csv("Target_Types_Dictionary.csv", names=['property', 'target_type'])

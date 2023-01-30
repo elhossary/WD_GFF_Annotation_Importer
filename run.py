@@ -4,6 +4,8 @@ from libs.GFFRecordsMapper import *
 from BCBio import GFF
 from libs.GFFRecordImporter import *
 import sys
+from getpass import getpass
+
 
 
 def main():
@@ -34,7 +36,7 @@ def main():
                 sys.exit()
     #  ask for login
     username = input("Enter your wikidata login username:  ")
-    password = input("Enter your wikidata login password: ")
+    password = getpass(prompt="Enter your wikidata login password: ")
     login_instance = wdi_login.WDLogin(user=username, pwd=password)
 
     # retrieve the list of excluded records
