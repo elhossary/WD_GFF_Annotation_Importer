@@ -1,8 +1,7 @@
 # GFF to Wikidata importing Tool
 
 ## Description
-- This tool can be used to import genomic annotations in GFF files to Wikidata. 
-- It automates the importing process
+This tool can be used to import genomic annotations in GFF files to Wikidata. It automates the importing process. It is a part of [InteractOA](https://interactoa.toolforge.org/) project.
 ## Prerequisites
 1. Install dependencies:
    - ```pip install wikidataintegrator pywikibot bcbio-gff pandas```
