@@ -5,6 +5,7 @@ This tool can be used to import genomic annotations in GFF files to Wikidata. It
 ## Prerequisites
 1. Install dependencies:
    - ```pip install wikidataintegrator pywikibot bcbio-gff pandas```
+3. Clone this repo
 2. Modify user-config.py
     - Go to line 43
     - Add your Wikidata's username
